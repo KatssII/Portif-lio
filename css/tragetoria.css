@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+:root{
+    --container_size: 49%;
+    --container_margin: calc(100% - var(--container_size)- var(--container_size));
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+}
+
+header{
+    margin-top: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Adicione isso ao seu CSS */
+.header-hidden {
+    transform: translateY(-100%); /* Move o cabeçalho para fora da tela */
+    transition: transform 0.3s ease; /* Animação suave */
+}
+
+
+.logo{
+    font-size: 3rem;
+    color: #FFA6AC;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color: #FFA6AC;
+    border-bottom: 3px solid #FFA6AC;
+}
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #FFA6AC;
+        border-bottom: 3px solid #FFA6AC;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 3rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #FFA6AC;
+    }
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.tragetoria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8rem;
+    background-color: black;
+}
+
+.tragetoria .tragetoria-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span{
+    color: #FFA6AC;
+}
+
+.tragetoria-content h3{
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.tragetoria-content p{
+    font-size: 1.6rem;
+    margin-top: 80px; /* Ajustar o valor conforme necessário */
+}
+
+
+/* Titulo sobre a pagina "Sobre minha educação" */
+.typing-text{
+    padding: 2%;
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+    margin-bottom: 20px; /* Ajustar o valor conforme necessário */
+    display: block; /* Garante que o elemento ocupe a largura total disponível */
+    text-align: center; /* Centraliza o texto dentro do bloco */
+    margin: 0 auto; /* Centraliza o bloco horizontalmente */
+    
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid black;
+    right: -8;
+    animation: cursor 0.6s infinite;
+}
+/* Titulo sobre a pagina "Sobre minha educação" */
+
+
+@keyframes cursor{
+    to{
+        border-left: 3px solid #FFA6AC;
+    }
+}
+
+@media (max-width: 1000px){
+    .tragetoria{
+        gap: 4rem;
+    }
+}
+
+@media(max-width:995px){
+    .tragetoria{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .tragetoria .tragetoria-content h3{
+        font-size: 2.5rem;
+    }
+
+    .tragetoria-content h1{
+        font-size: 5rem;
+    }
+
+    .tragetoria-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+/* ------------------------------------- Cards ------------------------------------------- */
+
+
+.services-container {
+    display: flex; /* Muda para flexbox para facilitar o alinhamento */
+    flex-wrap: wrap;
+    justify-content: space-between; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-direction: row; /* Alinha os itens em coluna (antes estava colunm)*/
+    margin: auto;
+    gap: 3rem;
+}
+
+.service-box {
+    /* margin-right: var(--container_margin);
+    margin-left: var(--container_margin); */
+    margin-top: 1.2rem;
+    width: var(--container_size);
+    background-color: #FFA6AC;
+    width: var(--container_size); /* Altera para 100% para manter a largura total do contêiner pai */
+    height: 550px; /* Altura do retângulo */
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out; /* Transição suave para cor e tamanho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    /*margin: center;  Centraliza horizontalmente */
+}
+
+.service-box:hover {
+    background-color: #FF8C8C; /* Nova cor de fundo ao passar o mouse */
+    transform: scale(1.0); /* Diminui a caixa para 90% do tamanho original */
+}
+
+.service-info {
+    text-align: center; /* Centraliza o texto dentro da caixa */
+    width: 100%;
+}
+
+.service-info h2 {
+    padding: 2rem;
+    color: #B36262;
+    font-size: 3rem; /* Aumenta o tamanho do título */
+    font-weight: 800;
+    line-height: 1.5;
+    margin: 0; /* Remove margem extra */
+}
+
+.service-info p {
+    font-size: 1.5rem; /* Aumenta o tamanho do parágrafo */
+    font-weight: 600;
+    line-height: 1.7;
+    margin: 0; /* Remove margem extra */
+}
+
+#info2 {
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+
+
+
+ul {
+    padding: 2rem;
+    width: 40%;
+    list-style-type: disc; /* Define o estilo do marcador (disc, circle, square, etc.) */
+    padding-left: 20px; /* Espaço à esquerda para o alinhamento dos itens */
+    margin-bottom: 1rem; /* Espaçamento inferior entre a lista e o próximo elemento */
+}
+
+ul li {
+    text-align: start;
+    margin-bottom: 0.5rem; /* Espaçamento inferior entre os itens da lista */
+    font-size: 1.6rem; /* Tamanho da fonte dos itens */
+    color: #fff; /* Cor do texto dos itens */
+}
+
+ul li:last-child {
+    margin-bottom: 0; /* Remove o espaçamento do último item */
+}
+
+.lists-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
